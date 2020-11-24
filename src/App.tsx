@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+import Image from "./types/image";
+import {getPhotos} from "./api/PhotoAPI";
 
 function App() {
-  const [images, setImages] = useState([]);
+  const [photos, setPhotos] = useState([] as Image[]);
   const [text, setText] = useState('');
   const [query, setQuery] = useState('louvre');
 
   useEffect(() => {
-    console.log('useEffect');
-    fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${process.env.REACT_APP_CLIENT_ID}`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-        });
-  });
+    getPhotos(query).then(res => {
+      setPhotos(res);
+    });
+  }, [query]);
   return (
     <div className="App">
     </div>

@@ -5,7 +5,7 @@ export const getPhotos = async (query: string): Promise<Image[]> => {
         .then(res => res.json())
         .then(data => {
             let images: Image[] = [];
-            return data.results.map((res: any) => {
+            data.results.forEach((res: any) => {
                 const image: Image = {
                     description: res.description,
                     id: res.id,

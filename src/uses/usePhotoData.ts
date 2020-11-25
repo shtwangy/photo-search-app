@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
-import Image from "../types/image";
+import Photo from "../types/Photo";
 import {getPhotos} from "../api/PhotoAPI";
 
 export const usePhotoData = (query: string) => {
-    const [photos, setPhotos] = useState([] as Image[]);
+    const [photos, setPhotos] = useState([] as Photo[]);
 
     useEffect(() => {
         if (query) {

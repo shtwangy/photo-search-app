@@ -1,20 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Image from "./types/image";
-import {getPhotos} from "./api/PhotoAPI";
+import {usePhotoData} from "./uses/usePhotoData";
+import {PhotoList} from "./components";
 
 function App() {
-  const [photos, setPhotos] = useState([] as Image[]);
   const [text, setText] = useState('');
   const [query, setQuery] = useState('louvre');
+  
+  const photos = usePhotoData(query);
 
-  useEffect(() => {
-    getPhotos(query).then(res => {
-      setPhotos(res);
-    });
-  }, [query]);
   return (
     <div className="App">
+        <PhotoList photos={photos} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import {TextInput} from "./UIKit";
+import {TextInput} from "../UIKit";
 import {makeStyles} from "@material-ui/core/styles";
 
 interface Props {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     searchField: {
         alignItems: 'center',
         display: 'flex',
-        marginLeft: 32
+        marginLeft: 32,
     }
 });
 

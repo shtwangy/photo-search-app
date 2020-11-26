@@ -11,7 +11,7 @@ interface Props {
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
-        paddingTop: theme.spacing(8),
+        paddingTop: theme.spacing(12),
         paddingBottom: theme.spacing(8),
     },
 }));

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.css';
 import {usePhotoData} from "./uses/usePhotoData";
 import {PhotoList} from "./components";
 
@@ -10,9 +9,9 @@ function App() {
   const photos = usePhotoData(query);
 
   return (
-    <div className="App">
+    <main>
         <PhotoList photos={photos} />
-    </div>
+    </main>
   );
 }
 

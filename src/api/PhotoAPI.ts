@@ -11,7 +11,7 @@ export const getPhotos = async (query: string): Promise<Photo[]> => {
                     alt_description: res.alt_description,
                     description: res.description,
                     id: res.id,
-                    url: res.urls.raw
+                    url: res.urls.regular
                 }
                 images.push(image);
             });

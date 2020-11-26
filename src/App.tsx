@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {usePhotoData} from "./uses/usePhotoData";
 import {PhotoList} from "./components";
+import {Header} from "./components/Header";
 
 function App() {
   const [text, setText] = useState('');
@@ -9,9 +10,12 @@ function App() {
   const photos = usePhotoData(query);
 
   return (
-    <main>
-        <PhotoList photos={photos} />
-    </main>
+      <>
+          <Header text={text} setText={setText} setQuery={setQuery}/>
+          <main>
+              <PhotoList photos={photos} />
+          </main>
+      </>
   );
 }
 

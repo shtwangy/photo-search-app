@@ -9,12 +9,13 @@ interface Props {
 }
 
 const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
+    card: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
     },
     media: {
-        width: 345,
-        height: 345,
+        paddingTop: '56.25%' // 16:9
     },
 });
 
@@ -22,7 +23,7 @@ const PhotoCard: FC<Props> = (props: Props) => {
     const classes = useStyles();
     const photo: Photo = props.photo;
     return (
-        <Card className={classes.root}>
+        <Card className={classes.card}>
             <CardMedia
                 className={classes.media}
                 image={photo.url}

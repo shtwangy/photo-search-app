@@ -23,12 +23,14 @@ const PhotoList: FC<Props> = (props: Props) => {
         <Container className={classes.cardGrid} maxWidth='md'>
             <Grid container spacing={2}>
                 {
-                    photos.length > 0 && (
+                    photos.length > 0 ? (
                         photos.map(photo =>
                             <Grid item key={photo.id} xs={12} sm={6} md={4}>
                                 <PhotoCard photo={photo}/>
                             </Grid>
                         )
+                    ) : (
+                    <div>検索結果はありません。</div>
                     )
                 }
             </Grid>

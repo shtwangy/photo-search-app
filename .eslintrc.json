@@ -6,6 +6,11 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
+        "airbnb/hooks",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
@@ -17,8 +22,11 @@
         "sourceType": "module"
     },
     "plugins": [
+        "@typescript-eslint",
+        "import",
+        "jsx-a11y",
         "react",
-        "@typescript-eslint"
+        "react-hooks"
     ],
     "settings": {
         "import/resolver": {
@@ -30,8 +38,10 @@
     "rules": {
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
+        "no-void": ["error", { "allowAsStatement": true }],
         "@typescript-eslint/indent": ["error", 2],
         "@typescript-eslint/prefer-interface": "off",
+        "import/prefer-default-export": "off",
         "import/extensions": [
             "error",
             "ignorePackages",

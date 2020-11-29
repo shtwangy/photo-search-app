@@ -1,6 +1,8 @@
-export default interface Photo {
-    alt_description: string;
-    description: string;
-    id: string;
-    url: string;
+interface Photo {
+  altDescription: string;
+  description: string;
+  id: string;
+  url: string;
 }
+
+export default Photo;

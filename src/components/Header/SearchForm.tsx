@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, FormEvent} from 'react';
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import {TextInput} from "../UIKit";
@@ -25,12 +25,13 @@ const SearchForm: FC<Props> = (props: Props) => {
         props.setText(e.target.value);
     };
 
-    const searchHandler = () => {
+    const searchHandler = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault(); // （デフォルトの動作の）画面遷移が発生しないように（https://ja.reactjs.org/docs/handling-events.html）
         props.setQuery(props.text);
     };
 
     return (
-        <div className={classes.searchField}>
+        <form className={classes.searchField} onSubmit={searchHandler}>
             <TextInput
                 fullWidth={false}
                 label={"キーワードを入力"}
@@ -41,10 +42,10 @@ const SearchForm: FC<Props> = (props: Props) => {
                 type={"search"}
                 onChange={inputTextHandler}
             />
-            <IconButton onClick={searchHandler}>
+            <IconButton type="submit" aria-label="search">
                 <SearchIcon />
             </IconButton>
-        </div>
+        </form>
     );
 };
 

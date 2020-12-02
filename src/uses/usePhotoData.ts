@@ -7,14 +7,9 @@ const usePhotoData = (query: string): Photo[] => {
 
   useEffect(() => {
     if (query) {
-      getPhotos(query)
-        .then((res) => {
-          console.log(res)
-          setPhotos(res)
-        })
-        .catch((err) => {
-          console.error(err)
-        })
+      getPhotos(query).then((res) => {
+        setPhotos(res)
+      })
     }
   }, [query])
 

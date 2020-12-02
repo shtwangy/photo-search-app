@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
-import Photo from '../types/Photo';
-import getPhotos from '../api/PhotoAPI';
+import { useState, useEffect } from 'react'
+import Photo from '../types/Photo'
+import getPhotos from '../api/PhotoAPI'
 
 const usePhotoData = (query: string): Photo[] => {
-  const [photos, setPhotos] = useState([] as Photo[]);
+  const [photos, setPhotos] = useState([] as Photo[])
 
   useEffect(() => {
     if (query) {
       getPhotos(query)
         .then((res) => {
-          console.log(res);
-          setPhotos(res);
+          console.log(res)
+          setPhotos(res)
         })
         .catch((err) => {
-          console.error(err);
-        });
+          console.error(err)
+        })
     }
-  }, [query]);
+  }, [query])
 
-  return photos;
-};
+  return photos
+}
 
-export default usePhotoData;
+export default usePhotoData

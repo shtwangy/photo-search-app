@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import usePhotoData from './uses/usePhotoData'
 import { PhotoList } from './components'
 import { Header } from './components/Header'
 
-function App() {
+const App: FC = () => {
   const [text, setText] = useState('')
   const [query, setQuery] = useState('louvre')
 

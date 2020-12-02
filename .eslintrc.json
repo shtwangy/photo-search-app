@@ -58,6 +58,7 @@
             { "extensions": [".jsx", ".tsx"] }
         ],
         "react/prop-types": "off",
-        "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }]
+        "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }],
+        "camelcase": ["error", {"allow": ["alt_description"]}]
     }
 }

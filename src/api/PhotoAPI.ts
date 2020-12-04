@@ -5,6 +5,10 @@ interface UnsplashAPIResponseJSON {
     alt_description: string
     description: string
     id: string
+    tags: {
+      type: string
+      title: string
+    }[]
     urls: {
       regular: string
     }
@@ -23,6 +27,7 @@ const getPhotos = async (query: string): Promise<Photo[]> => {
           altDescription: res.alt_description,
           description: res.description,
           id: res.id,
+          tags: res.tags,
           url: res.urls.regular,
         }
         images.push(image)

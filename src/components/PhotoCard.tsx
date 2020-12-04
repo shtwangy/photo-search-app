@@ -18,6 +18,10 @@ const useStyles = makeStyles({
   media: {
     paddingTop: '56.25%', // 16:9
   },
+  photoChip: {
+    margin: '5px',
+    fontSize: '3px',
+  },
 })
 
 const PhotoCard: FC<Props> = (props: Props) => {
@@ -32,10 +36,16 @@ const PhotoCard: FC<Props> = (props: Props) => {
           title={photo.altDescription}
         />
       </Card>
-      <Chip label="Basic" />
-      <Chip label="Basic" />
-      <Chip label="Basic" />
-      <Chip label="Basic" />
+      <div>
+        {photo.tags.length > 0 &&
+          photo.tags.map((tag) => (
+            <Chip
+              key={tag.title}
+              className={classes.photoChip}
+              label={tag.title}
+            />
+          ))}
+      </div>
     </div>
   )
 }

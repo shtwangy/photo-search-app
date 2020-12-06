@@ -8,6 +8,7 @@ interface Props {
   text: string
   setText: (s: string) => void
   setQuery: (s: string) => void
+  setPage: (p: number) => void
 }
 
 const useStyles = makeStyles({
@@ -23,13 +24,18 @@ const useStyles = makeStyles({
 
 const Header: FC<Props> = (props: Props) => {
   const classes = useStyles()
-  const { text, setText, setQuery } = props
+  const { text, setText, setQuery, setPage } = props
   return (
     <AppBar position="fixed" className={classes.header} color="inherit">
       <Toolbar className={classes.toolBar}>
         <p>PHOTO SEARCH APP</p>
         <div className="spacer-horizontal" />
-        <SearchForm text={text} setText={setText} setQuery={setQuery} />
+        <SearchForm
+          text={text}
+          setText={setText}
+          setQuery={setQuery}
+          setPage={setPage}
+        />
       </Toolbar>
     </AppBar>
   )

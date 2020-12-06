@@ -8,6 +8,7 @@ interface Props {
   text: string
   setText: (s: string) => void
   setQuery: (s: string) => void
+  setPage: (p: number) => void
 }
 
 const useStyles = makeStyles({
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 
 const SearchForm: FC<Props> = (props: Props) => {
   const classes = useStyles()
-  const { text, setText, setQuery } = props
+  const { text, setText, setQuery, setPage } = props
 
   const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
@@ -29,6 +30,7 @@ const SearchForm: FC<Props> = (props: Props) => {
   const searchHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() // （デフォルトの動作の）画面遷移が発生しないように（https://ja.reactjs.org/docs/handling-events.html）
     setQuery(props.text)
+    setPage(1)
   }
 
   return (

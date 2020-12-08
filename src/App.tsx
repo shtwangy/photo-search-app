@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import usePhotoData from './uses/usePhotoData'
+import usePhotoData from './hooks/usePhotoData'
 import { PhotoList } from './components'
 import { Header } from './components/Header'
 
@@ -9,7 +9,7 @@ const App: FC = () => {
   const [query, setQuery] = useState('louvre')
   const [page, setPage] = useState(1)
 
-  const photos = usePhotoData(query, page)
+  const { photos, error } = usePhotoData(query, page)
 
   return (
     <>
@@ -29,6 +29,7 @@ const App: FC = () => {
           <PhotoList photos={photos} />
         </main>
       </InfiniteScroll>
+      <div>{error && 'Error!!'}</div>
     </>
   )
 }

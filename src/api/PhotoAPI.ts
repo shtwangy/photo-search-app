@@ -1,6 +1,6 @@
 import Photo from '../types/Photo'
 
-interface UnsplashAPIResponseJSON {
+interface UnsplashAPIResponse {
   results: {
     alt_description: string
     description: string
@@ -20,7 +20,7 @@ const getPhotos = async (query: string, page: number): Promise<Photo[]> => {
     `https://api.unsplash.com/search/photos?query=${query}&page=${page}&client_id=${process.env.REACT_APP_CLIENT_ID}`
   )
     .then((res) => res.json())
-    .then((data: UnsplashAPIResponseJSON) => {
+    .then((data: UnsplashAPIResponse) => {
       const images: Photo[] = []
       data.results.forEach((res) => {
         const image: Photo = {

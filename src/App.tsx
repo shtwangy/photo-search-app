@@ -9,7 +9,7 @@ const App: FC = () => {
   const [query, setQuery] = useState('louvre')
   const [page, setPage] = useState(1)
 
-  const { photos, error } = usePhotoData(query, page)
+  const { photos, error, hasMore, loading } = usePhotoData(query, page)
 
   return (
     <>
@@ -22,13 +22,14 @@ const App: FC = () => {
       <InfiniteScroll
         pageStart={0}
         loadMore={() => setPage(page + 1)}
-        hasMore
+        hasMore={hasMore}
         initialLoad={false}
       >
         <main>
           <PhotoList photos={photos} />
         </main>
       </InfiniteScroll>
+      <div>{loading && 'Loading...'}</div>
       <div>{error && 'Error!!'}</div>
     </>
   )

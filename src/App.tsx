@@ -30,7 +30,7 @@ const App: FC = () => {
       />
       <InfiniteScroll
         pageStart={0}
-        loadMore={() => setPage((prevPage) => prevPage + 1)}
+        loadMore={() => (hasMore ? setPage((prevPage) => prevPage + 1) : {})}
         hasMore={hasMore}
         initialLoad={false}
       >

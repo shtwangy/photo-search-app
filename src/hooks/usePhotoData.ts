@@ -17,10 +17,6 @@ const usePhotoData = (query: string, page: number): usePhotoDataResponse => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setPhotos([])
-  }, [query])
-
-  useEffect(() => {
     setLoading(true)
     setError(false)
     getPhotos(query, page)

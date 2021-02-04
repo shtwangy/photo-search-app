@@ -29,11 +29,11 @@ const usePhotoData = (query: string, page: number): usePhotoDataResponse => {
           return [...p, ...res]
         })
         setHasMore(res.length > 0)
-        setLoading(false)
       })
       .catch(() => {
         setError(true)
       })
+      .finally(() => setLoading(false))
   }, [query, page])
 
   return { photos, error, hasMore, loading, setPhotos }

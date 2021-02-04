@@ -16,12 +16,12 @@ interface UnsplashAPIResponse {
 }
 
 const getPhotos = async (query: string, page: number): Promise<Photo[]> => {
+  const images: Photo[] = []
   const ret = await fetch(
     `https://api.unsplash.com/search/photos?query=${query}&page=${page}&client_id=${process.env.REACT_APP_CLIENT_ID}`
   )
     .then((res) => res.json())
     .then((data: UnsplashAPIResponse) => {
-      const images: Photo[] = []
       data.results.forEach((res) => {
         const image: Photo = {
           altDescription: res.alt_description,
@@ -32,6 +32,9 @@ const getPhotos = async (query: string, page: number): Promise<Photo[]> => {
         }
         images.push(image)
       })
+      return images
+    })
+    .catch(() => {
       return images
     })
 

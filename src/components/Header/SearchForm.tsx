@@ -3,14 +3,11 @@ import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles } from '@material-ui/core/styles'
 import { TextInput } from '../UIKit'
-import Photo from '../../types/Photo'
 
 interface Props {
   text: string
   setText: (s: string) => void
-  setQuery: (s: string) => void
-  setPage: (p: number) => void
-  setPhotos: (p: Photo[]) => void
+  updateQuery: () => void
 }
 
 const useStyles = makeStyles({
@@ -23,7 +20,7 @@ const useStyles = makeStyles({
 
 const SearchForm: FC<Props> = (props: Props) => {
   const classes = useStyles()
-  const { text, setText, setQuery, setPage, setPhotos } = props
+  const { text, setText, updateQuery } = props
 
   const inputTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
@@ -31,9 +28,7 @@ const SearchForm: FC<Props> = (props: Props) => {
 
   const searchHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() // （デフォルトの動作の）画面遷移が発生しないように（https://ja.reactjs.org/docs/handling-events.html）
-    setQuery(text)
-    setPage(1)
-    setPhotos([])
+    updateQuery()
   }
 
   return (

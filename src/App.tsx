@@ -23,15 +23,17 @@ const App: FC = () => {
     page
   )
 
+  const updateQuery = () => {
+    if (text !== query) {
+      setQuery(text)
+      setPage(1)
+      setPhotos([])
+    }
+  }
+
   return (
     <>
-      <Header
-        text={text}
-        setText={setText}
-        setQuery={setQuery}
-        setPage={setPage}
-        setPhotos={setPhotos}
-      />
+      <Header text={text} setText={setText} updateQuery={updateQuery} />
       <InfiniteScroll
         pageStart={0}
         loadMore={() => (hasMore ? setPage((prevPage) => prevPage + 1) : {})}

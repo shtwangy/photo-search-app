@@ -31,7 +31,7 @@ const SearchForm: FC<Props> = (props: Props) => {
 
   const searchHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() // （デフォルトの動作の）画面遷移が発生しないように（https://ja.reactjs.org/docs/handling-events.html）
-    setQuery(props.text)
+    setQuery(text)
     setPage(1)
     setPhotos([])
   }

@@ -7,6 +7,7 @@ interface usePhotoDataResponse {
   error: boolean
   hasMore: boolean
   loading: boolean
+  setPhotos: (p: Photo[]) => void
 }
 
 const usePhotoData = (query: string, page: number): usePhotoDataResponse => {
@@ -35,7 +36,7 @@ const usePhotoData = (query: string, page: number): usePhotoDataResponse => {
       })
   }, [query, page])
 
-  return { photos, error, hasMore, loading }
+  return { photos, error, hasMore, loading, setPhotos }
 }
 
 export default usePhotoData

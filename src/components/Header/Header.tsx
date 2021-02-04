@@ -3,12 +3,14 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core/styles'
 import SearchForm from './SearchForm'
+import Photo from '../../types/Photo'
 
 interface Props {
   text: string
   setText: (s: string) => void
   setQuery: (s: string) => void
   setPage: (p: number) => void
+  setPhotos: (p: Photo[]) => void
 }
 
 const useStyles = makeStyles({
@@ -24,7 +26,7 @@ const useStyles = makeStyles({
 
 const Header: FC<Props> = (props: Props) => {
   const classes = useStyles()
-  const { text, setText, setQuery, setPage } = props
+  const { text, setText, setQuery, setPage, setPhotos } = props
   return (
     <AppBar position="fixed" className={classes.header} color="inherit">
       <Toolbar className={classes.toolBar}>
@@ -35,6 +37,7 @@ const Header: FC<Props> = (props: Props) => {
           setText={setText}
           setQuery={setQuery}
           setPage={setPage}
+          setPhotos={setPhotos}
         />
       </Toolbar>
     </AppBar>

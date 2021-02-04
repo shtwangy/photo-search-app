@@ -18,7 +18,10 @@ const App: FC = () => {
   const [query, setQuery] = useState('louvre')
   const [page, setPage] = useState(1)
 
-  const { photos, error, hasMore, loading } = usePhotoData(query, page)
+  const { photos, error, hasMore, loading, setPhotos } = usePhotoData(
+    query,
+    page
+  )
 
   return (
     <>
@@ -27,6 +30,7 @@ const App: FC = () => {
         setText={setText}
         setQuery={setQuery}
         setPage={setPage}
+        setPhotos={setPhotos}
       />
       <InfiniteScroll
         pageStart={0}
